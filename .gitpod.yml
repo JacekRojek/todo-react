@@ -5,3 +5,8 @@
 tasks:
   - init: yarn install
     command: yarn run start
+ports:
+  - name: ToDo App
+    description: ToDo app
+    port: 3000
+    onOpen: open-browser
