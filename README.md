@@ -1,3 +1,5 @@
+[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/JacekRojek/todo-react)
+
 INSTRUCTIONS:
 
 Please use the React framework to solve this assignment or alternatively pure javascript if you don't know React.
