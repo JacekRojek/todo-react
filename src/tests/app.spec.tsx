@@ -70,4 +70,21 @@ describe("TodoApp", () => {
     await waitFor(() => screen.findByTestId("todo0"));
     expect(screen.getByTestId("todo0").innerHTML).toBe("buy eggs");
   });
+  it("clear add task form input", async () => {
+    render(<App />);
+    expect(screen.getByTestId("addTask")).toBeDefined();
+    userEvent.click(screen.getByTestId("addTask"));
+    await waitFor(() => screen.findByTestId("addTaskInput"));
+    const addTaskInput = screen.getByTestId("addTaskInput");
+    const addTaskSubmit = screen.getByTestId("addTaskSubmit");
+    userEvent.type(addTaskInput, "eggs");
+    userEvent.click(addTaskSubmit);
+    await waitFor(() => screen.findByTestId("addTask"));
+    expect(screen.getByTestId("tasks-list").childElementCount).toBe(3);
+    userEvent.click(screen.getByTestId("addTask"));
+    await waitFor(() => screen.findByTestId("addTaskInput"));
+    expect(screen.getByTestId("addTaskInput")).toBeDefined();
+    expect(screen.getByTestId("addTaskInput")).toHaveDisplayValue([""]);
+  });
+
 });
